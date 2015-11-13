@@ -1,5 +1,5 @@
 //Below is where you change scores
-var scores = [120, 75, 100, 85]
+var scores = [180, 100, 130, 100]
 
 //Below is where you change events
 var fList = ['watermelon toss','abc', 'saf', '2345', 'olympic mud-wrestling'];
@@ -7,6 +7,8 @@ var sList = ['relay race'];
 var jList = ['literally why can'];
 var rList = ['tug of war'];
 
+//
+var animate = true
 
 
 var canvas = document.getElementById("canvas");
@@ -32,6 +34,14 @@ var ClassArray = [fList,sList,jList,rList]
 var Currentclass = 0
 
 update();
+//TO DO:
+//Write a loop that's gonna update, then pause (10 milliseconds), and do that 100 times
+//During that loop, store the heights (calculates what percentage of time has past i/number of times doing loop) 
+//Multiply the height by 
+
+
+
+
 //hint: to get pillar to automatically fit, use the canvas width and the canvas height
 canvas.addEventListener("mousemove", getPosition, false);
 
@@ -66,19 +76,48 @@ function update() {
 	}
 	
 
-	for (var i = 0; i < numbPills; i++) {
-		x = (i + 1) * (canvas.width/(numbPills+1));
-		ctx1.fillStyle = colorList[i];
-		ctx1.fillRect(x-50,canvas.height - 0 - height[i],width,height[i]);
-		ctx1.stroke();
-		//TO DO: MAKE BOLD
-		ctx1.font = "40px Arial";
-	// ctx1.color = "#000000"
-		ctx1.fillStyle = "white";
-		ctx1.fillText(scores[i],x - width/3,700);
-		ctx1.stroke();
-		//255,700
-  	}
+	if (animate){
+		for (var j = 0; j < getMaxOfArray(scores); j++){
+			for (var i = 0; i < numbPills; i++) {
+				x = (i + 1) * (canvas.width/(numbPills+1));
+				ctx1.fillStyle = colorList[i];
+				if (j < height[i]){
+					ht = j;
+				} else {
+					ht = height[i];
+				}
+				ctx1.fillRect(x-50,canvas.height - 0 - ht,width,ht);
+				ctx1.stroke();
+				//TO DO: MAKE BOLD
+				ctx1.font = "40px Arial";
+				// ctx1.color = "#000000"
+				ctx1.fillStyle = "white";
+				ctx1.fillText(scores[i],x - width/3,700);
+				ctx1.stroke();
+				//255,700
+			}
+			window.setTimeout(function(){}, 1000);
+
+		}
+		animate = false;
+
+	}
+
+	else{
+		for (var i = 0; i < numbPills; i++) {
+			x = (i + 1) * (canvas.width/(numbPills+1));
+			ctx1.fillStyle = colorList[i];
+			ctx1.fillRect(x-50,canvas.height - 0 - height[i],width,height[i]);
+			ctx1.stroke();
+			//TO DO: MAKE BOLD
+			ctx1.font = "40px Arial";
+			// ctx1.color = "#000000"
+			ctx1.fillStyle = "white";
+			ctx1.fillText(scores[i],x - width/3,700);
+			ctx1.stroke();
+			//255,700
+	  	}
+	  }
 }
 
 function getPosition(event) {
