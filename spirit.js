@@ -66,6 +66,10 @@ function updateText() {
 	
 }
 
+var elapsedTime = 0; // this is going to keep track of how many "ticks" of 100 ms have passed so far, think of this is the "initialization" step of a for loop
+var maxTime = 5000; // total time that the animation will take
+var tickLength = 10; // how long each animation step will be, in ms.
+
 function update() {
 	ctx1.fillStyle = "white";
 	ctx1.fillRect(0,0,canvas.width,canvas.height)
@@ -77,15 +81,11 @@ function update() {
 	
 
 	if (animate){
-		for (var j = 0; j < getMaxOfArray(scores); j++){
+		elapsedTime = elapsedTime + tickLength;
 			for (var i = 0; i < numbPills; i++) {
 				x = (i + 1) * (canvas.width/(numbPills+1));
 				ctx1.fillStyle = colorList[i];
-				if (j < height[i]){
-					ht = j;
-				} else {
-					ht = height[i];
-				}
+				ht = (elapsedTime/maxTime) * height[i];
 				ctx1.fillRect(x-50,canvas.height - 0 - ht,width,ht);
 				ctx1.stroke();
 				//TO DO: MAKE BOLD
@@ -96,11 +96,10 @@ function update() {
 				ctx1.stroke();
 				//255,700
 			}
-			window.setTimeout(function(){}, 1000);
-
+		if(elapsedTime > maxTime){
+			animate = false;
 		}
-		animate = false;
-
+		setTimeout(update,tickLength);
 	}
 
 	else{
