@@ -74,6 +74,7 @@ var tickLength = 10;
  
   //...drawing code...
 //}
+//I added the code to my drawing function
 function update() {
 	var ctx = (a canvas context);
   	ctx.canvas.width  = window.innerWidth;
