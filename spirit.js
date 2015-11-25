@@ -70,7 +70,14 @@ var maxTime = 5000;
 // how long each animation step will be, in ms.
 var tickLength = 10; 
 
+//function draw() {
+ 
+  //...drawing code...
+//}
 function update() {
+	var ctx = (a canvas context);
+  	ctx.canvas.width  = window.innerWidth;
+  	ctx.canvas.height = window.innerHeight;
 	ctx1.fillStyle = "white";
 	ctx1.fillRect(0,0,canvas.width,canvas.height)
 	
