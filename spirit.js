@@ -1,13 +1,18 @@
 //Below is where you change scores
-var scores = [180, 100, 130, 100]
+var scores = [200, 100, 130, 100]
 
 //Below is where you change events
+
+//Freshman
 var fList = ['watermelon toss','abc', 'saf', '2345', 'olympic mud-wrestling'];
+//Sophomores
 var sList = ['relay race'];
+//Juniors
 var jList = ['literally why can'];
+//Seniors
 var rList = ['tug of war'];
 
-//
+
 var animate = true
 
 
@@ -34,12 +39,6 @@ var ClassArray = [fList,sList,jList,rList]
 var Currentclass = 0
 
 update();
-//TO DO:
-//Write a loop that's gonna update, then pause (10 milliseconds), and do that 100 times
-//During that loop, store the heights (calculates what percentage of time has past i/number of times doing loop) 
-//Multiply the height by 
-
-
 
 
 //hint: to get pillar to automatically fit, use the canvas width and the canvas height
@@ -57,7 +56,6 @@ function updateText() {
 
 	ctx1.font = "16px Arial";
 	ctx1.fillStyle = "black";
-	// create accumulator to go through (ClassArray[Currentclass]) to get the right text to print
 	
 	var printText = ClassArray[Currentclass].join(', ');
 		for (var i = 0; i < ClassArray[Currentclass].length; i++){
@@ -65,10 +63,12 @@ function updateText() {
     	}
 	
 }
-
-var elapsedTime = 0; // this is going to keep track of how many "ticks" of 100 ms have passed so far, think of this is the "initialization" step of a for loop
-var maxTime = 5000; // total time that the animation will take
-var tickLength = 10; // how long each animation step will be, in ms.
+// this is going to keep track of how many "ticks" of 100 ms have passed so far, think of this is the "initialization
+var elapsedTime = 0; 
+// total time that the animation will take
+var maxTime = 5000; 
+// how long each animation step will be, in ms.
+var tickLength = 10; 
 
 function update() {
 	ctx1.fillStyle = "white";
@@ -79,7 +79,6 @@ function update() {
 		updateText();
 	}
 	
-
 	if (animate){
 		elapsedTime = elapsedTime + tickLength;
 			for (var i = 0; i < numbPills; i++) {
@@ -126,7 +125,7 @@ function getPosition(event) {
     y = event.y;
   }
   else { // Firefox method to get the position
-    x = event.clientX + document.body.scrollLeft +
+    x = event.clientX + document.body.scrollLeft + 
         document.documentElement.scrollLeft;
     y = event.clientY + document.body.scrollTop +
         document.documentElement.scrollTop;
@@ -160,14 +159,9 @@ function isWithin(x,y,px,py,pw,ph) {
 }
 
 
-
-
 function showText(i) {
 	alert(ClassArray[i])
 }
-
-
-
 
 // pillar colors = list of colors
 // pillar heights = list of heights
