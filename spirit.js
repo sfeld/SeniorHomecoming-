@@ -76,9 +76,8 @@ var tickLength = 10;
 //}
 //I added the code to my drawing function
 function update() {
-	var ctx = (a canvas context);
-  	ctx.canvas.width  = window.innerWidth;
-  	ctx.canvas.height = window.innerHeight;
+  	//ctx1.canvas.width  = window.innerWidth;
+  	//ctx1.canvas.height = window.innerHeight;
 	ctx1.fillStyle = "white";
 	ctx1.fillRect(0,0,canvas.width,canvas.height)
 	
