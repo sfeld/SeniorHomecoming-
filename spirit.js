@@ -4,12 +4,12 @@ var scores = [200, 100, 130, 100]
 //Below is where you change events
 
 //Freshman
-var fList = ['watermelon toss','abc', 'saf', '2345', 'olympic mud-wrestling'];
+var fList = ['Freshman'];
 //Sophomores
-var sList = ['relay race'];
+var sList = ['Sophomores'];
 //Juniors
-var jList = ['literally why can'];
-var rList = ['tug of war', 'jumproping'];
+var jList = ['Juniors'];
+var rList = ['Seniors'];
 
 var titleText = "Kehillah 2016 Homecoming Points"
 
