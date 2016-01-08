@@ -22,7 +22,7 @@ ctx1.rect(1, 1,canvas.width -1 ,canvas.height -1 );
 ctx1.stroke();
 //normalBlue color "#0000ff"
 var numbPills = 4
-var colorList =["#008000", "#0000CD", "#000000", "#ff0000"]
+var colorList =["#00ff00", "#0040ff", "#000000", "#ff0000"]
 var height = []
 var maxHeight = 400
 function getMaxOfArray(numArray) {
