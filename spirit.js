@@ -31,7 +31,7 @@ function getMaxOfArray(numArray) {
 var maxScore = getMaxOfArray(scores);
 for (var i = 0; i < scores.length; i++) {
   height[i] = scores[i] * (maxHeight/maxScore); 
-}
+}//got head tonight ;) #majorkey
 var width = 100
 var ClassArray = [fList,sList,jList,rList]
 
@@ -158,6 +158,7 @@ function showInfo(x,y) {
 		if (inThisPillar) {curPillar = i;}
 	}
 	Currentclass = curPillar;
+	console.log(Currentclass);
 	// showText(curPillar);
 }
 
