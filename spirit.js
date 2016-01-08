@@ -1,5 +1,5 @@
 //Below is where you change scores
-var scores = [200, 100, 130, 100]
+var scores = [100,100,100,100]
 
 //Below is where you change events
 
