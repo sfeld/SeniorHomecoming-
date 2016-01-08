@@ -24,7 +24,7 @@ ctx1.stroke();
 var numbPills = 4
 var colorList =["#00ff00", "#0040ff", "#000000", "#ff0000"]
 var height = []
-var maxHeight = 400
+var maxHeight = 285
 function getMaxOfArray(numArray) {
   return Math.max.apply(null, numArray);
 }
@@ -82,7 +82,8 @@ var tickLength = 10;
 function update() {
   	ctx1.canvas.width  = window.innerWidth;
   	ctx1.canvas.height = window.innerHeight;
-	ctx1.fillStyle = "white";
+  	//Sets the window color
+	ctx1.fillStyle = "#cce5ff";
 	ctx1.fillRect(0,0,canvas.width,canvas.height)
 	
 	//draw title each time
