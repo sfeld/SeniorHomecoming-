@@ -9,9 +9,9 @@ var fList = ['watermelon toss','abc', 'saf', '2345', 'olympic mud-wrestling'];
 var sList = ['relay race'];
 //Juniors
 var jList = ['literally why can'];
-//Seniors
-var rList = ['tug of war'];
+var rList = ['tug of war', 'jumproping'];
 
+var titleText = "Kehillah 2016 Homecoming Points"
 
 var animate = true
 
@@ -48,9 +48,13 @@ function updateText() {
 // gets position of pillar
 	var px = (Currentclass + 1) * (canvas.width/(numbPills+1)) - 50;
 	var py = canvas.height - 0 - height[Currentclass];
+	var nl = ClassArray[Currentclass].length
+	//drawing white rectangle
+	ctx1.fillStyle = "White";
+	ctx1.fillRect(px-50,py-nl * 10, 200, nl * 16 + 16);
 	// draws display rectangle
 	ctx1.beginPath();
-	ctx1.rect(px-50,py-105,200,100)
+	ctx1.rect(px-50,py-nl * 10, 200, nl * 16 + 16);
 	ctx1.drawStyle = "black";
 	ctx1.stroke();
 
@@ -59,7 +63,7 @@ function updateText() {
 	
 	var printText = ClassArray[Currentclass].join(', ');
 		for (var i = 0; i < ClassArray[Currentclass].length; i++){
-			ctx1.fillText(ClassArray[Currentclass][i],px-40,(py-85)+i*16);
+			ctx1.fillText(ClassArray[Currentclass][i],px-40,(py-nl * 10 + 16)+i*16);
     	}
 	
 }
@@ -81,10 +85,8 @@ function update() {
 	ctx1.fillStyle = "white";
 	ctx1.fillRect(0,0,canvas.width,canvas.height)
 	
-
-	if (Currentclass >= 0){
-		updateText();
-	}
+	//draw title each time
+	drawTitle();
 	
 	if (animate){
 		elapsedTime = elapsedTime + tickLength;
@@ -120,9 +122,12 @@ function update() {
 			ctx1.fillStyle = "white";
 			ctx1.fillText(scores[i],x - width/3,700);
 			ctx1.stroke();
-			//255,700
+			//255,700			
 	  	}
 	  }
+	if (Currentclass >= 0){
+		updateText();
+	}	  
 }
 
 function getPosition(event) {
@@ -158,7 +163,7 @@ function showInfo(x,y) {
 		if (inThisPillar) {curPillar = i;}
 	}
 	Currentclass = curPillar;
-	console.log(Currentclass);
+
 	// showText(curPillar);
 }
 
@@ -169,6 +174,16 @@ function isWithin(x,y,px,py,pw,ph) {
 
 function showText(i) {
 	alert(ClassArray[i])
+}
+
+function drawTitle(){
+	ctx1.fillStyle = "black";
+	var w = canvas.width;
+	var h = canvas.height;
+	fsize = Math.round(.12 * h);
+	ctx1.font = fsize + "px Comic Sans";
+	ctx1.fillText(titleText,80,80);
+
 }
 
 // pillar colors = list of colors
