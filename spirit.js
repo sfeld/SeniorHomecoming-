@@ -8,7 +8,7 @@ var fList = ['Freshman'];
 //Sophomores
 var sList = ['Sophomores'];
 //Juniors
-var jList = ['Juniors'];
+var jList = ['Juniors' \n 'Movie Jeopardy: 1st Place'];
 //Seniors
 var rList = ['Seniors'];
 
