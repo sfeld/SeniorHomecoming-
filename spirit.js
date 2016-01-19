@@ -1,5 +1,5 @@
 //Below is where you change scores
-var scores = [100,100,100,100]
+var scores = [25,0,50,40]
 
 //Below is where you change events
 
@@ -9,6 +9,7 @@ var fList = ['Freshman'];
 var sList = ['Sophomores'];
 //Juniors
 var jList = ['Juniors'];
+//Seniors
 var rList = ['Seniors'];
 
 var titleText = "Kehillah 2016 Homecoming Points"
@@ -80,14 +81,14 @@ var tickLength = 10;
 //}
 //I added the code to my drawing function
 function update() {
-  	ctx1.canvas.width  = window.innerWidth;
-  	ctx1.canvas.height = window.innerHeight;
+  	ctx1.canvas.width  =  window.innerWidth;//screen.availHeight
+  	ctx1.canvas.height =  window.innerHeight; //screen.availWidth
   	//Sets the window color
 	ctx1.fillStyle = "#cce5ff";
 	ctx1.fillRect(0,0,canvas.width,canvas.height)
 	
 	//draw title each time
-	drawTitle();
+	//drawTitle();
 	
 	if (animate){
 		elapsedTime = elapsedTime + tickLength;
