@@ -4,8 +4,7 @@ var scores = [25,0,50,40]
 //Below is where you change events
 
 //Freshman
-var fList = ['Freshman:
-Movie Jeopardy: 3rd place'];
+var fList = ['Freshman:'];
 //Sophomores
 var sList = ['Sophomores'];
 //Juniors
