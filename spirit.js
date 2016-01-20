@@ -1,5 +1,5 @@
 //Below is where you change scores
-var scores = [25,0,50,40]
+var scores = [65,25,120,95]
 
 //Below is where you change events
 
