@@ -1,16 +1,16 @@
 //Below is where you change scores
-var scores = [65,25,120,95]
+var scores = [245,140,415,375]
 
 //Below is where you change events
 
 //Freshman
-var fList = ['Freshman:', 'Dodgeball'];
+var fList = ['Freshman:', 'Day 1 Dressup (53.5%) (+40)','Jeopardy:3rd Place (+25)' , 'Day 2 Dressup (44.8%) (+40) ' ,'Dodgeball: L:11th & 12th(+30)','                   W: 10th (+50)' ,'                   L: 12th (+30)', 'Tug-War L: 11th (+30)'];
 //Sophomores
-var sList = ['Sophomores'];
+var sList = ['Sophomores', 'Day 1 Dressup (41.4%) (+25)', 'Jeopardy: Disqualified', 'Day 2 Dressup (60%) (+25)', 'Dodgeball: L:11th & 12th(+30)', '                  L: 9th (+30)', 'D: 11th (+40)', 'Tug-War L: 12th (+30)'];
 //Juniors
-var jList = ['Juniors'];
+var jList = ['Juniors', 'Day 1 Dressup (92.5%) (+70)', 'Jeopardy: 1st Place (+50)', 'Day 2 Dressup (82%) (+55)', 'Dodgeball: W: 9th & 10th (+50)', '                 W: 12th (+50)' ,'D: 10th (+40)', 'Tug-War W: 9th (+50)', '               W: 12th (+50)'  ];
 //Seniors
-var rList = ['Seniors'];
+var rList = ['Seniors', 'Day 1 Dressup (81.2%) (+55)', 'Jeopardy: 2nd Place (+40)', 'Day 2 Dressup (100%!) (+70)', 'Dodgeball: W: 9th & 10th (+50)', '                 L: 11th (+30)', 'W: 9th (+50)', 'Tug-War W: 10th (+50)', '               L: 11th (+30)' ];
 
 var titleText = "Kehillah 2016 Homecoming Points"
 
