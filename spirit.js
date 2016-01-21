@@ -105,7 +105,7 @@ function update() {
 			ctx1.fillRect(x-width/2,canvas.height - 0 - ht,width,ht);
 			ctx1.stroke();
 			//TO DO: MAKE BOLD
-			ctx1.font = "40px Arial";
+			ctx1.font = Math.round(canvas.width * 40/1200) + "px Arial";
 			// ctx1.color = "#000000"
 			ctx1.fillStyle = "white";
 			ctx1.fillText(scores[i],x - width/3,canvas.height * 0.94);
@@ -125,7 +125,7 @@ function update() {
 			ctx1.fillRect(x-width/2,canvas.height - 0 - height[i],width,height[i]);
 			ctx1.stroke();
 			//TO DO: MAKE BOLD
-			ctx1.font = "40px Arial";
+			ctx1.font = Math.round(canvas.width * 40/1200) + "px Arial";
 			// ctx1.color = "#000000"
 			ctx1.fillStyle = "white";
 			ctx1.fillText(scores[i],x - width/3,canvas.height * 0.94);
