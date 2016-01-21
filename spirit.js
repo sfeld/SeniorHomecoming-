@@ -4,7 +4,7 @@ var scores = [65,25,120,95]
 //Below is where you change events
 
 //Freshman
-var fList = ['Freshman'];
+var fList = ['Freshman:', 'Dodgeball'];
 //Sophomores
 var sList = ['Sophomores'];
 //Juniors
@@ -25,19 +25,19 @@ ctx1.stroke();
 var numbPills = 4
 var colorList =["#00ff00", "#0040ff", "#000000", "#ff0000"]
 var height = []
-var maxHeight = 285
+var maxHeight = canvas.height * .5;
 function getMaxOfArray(numArray) {
   return Math.max.apply(null, numArray);
 }
 var maxScore = getMaxOfArray(scores);
 for (var i = 0; i < scores.length; i++) {
   height[i] = scores[i] * (maxHeight/maxScore); 
-}//got head tonight ;) #majorkey
-var width = 100
+}
+var width;
 var ClassArray = [fList,sList,jList,rList]
 
 //the pillar user most recently clicked on
-var Currentclass = 0
+var Currentclass = -1;
 
 update();
 
@@ -52,10 +52,11 @@ function updateText() {
 	var nl = ClassArray[Currentclass].length
 	//drawing white rectangle
 	ctx1.fillStyle = "White";
-	ctx1.fillRect(px-50,py-nl * 10, 200, nl * 16 + 16);
+	var boxWidth = 250;
+	ctx1.fillRect(px-75,py-nl * 10, boxWidth, nl * 16 + 16);
 	// draws display rectangle
 	ctx1.beginPath();
-	ctx1.rect(px-50,py-nl * 10, 200, nl * 16 + 16);
+	ctx1.rect(px-75,py-nl * 10, boxWidth, nl * 16 + 16);
 	ctx1.drawStyle = "black";
 	ctx1.stroke();
 
@@ -71,7 +72,7 @@ function updateText() {
 // this is going to keep track of how many "ticks" of 100 ms have passed so far, think of this is the "initialization
 var elapsedTime = 0; 
 // total time that the animation will take
-var maxTime = 5000; 
+var maxTime = 3000; 
 // how long each animation step will be, in ms.
 var tickLength = 10; 
 
@@ -81,6 +82,11 @@ var tickLength = 10;
 //}
 //I added the code to my drawing function
 function update() {
+	width = canvas.width * .07;
+	for (var i = 0; i < scores.length; i++) {
+  	height[i] = scores[i] * (maxHeight/maxScore); 
+	}
+  	maxHeight = canvas.height * .5;
   	ctx1.canvas.width  =  window.innerWidth;//screen.availHeight
   	ctx1.canvas.height =  window.innerHeight; //screen.availWidth
   	//Sets the window color
@@ -92,44 +98,45 @@ function update() {
 	
 	if (animate){
 		elapsedTime = elapsedTime + tickLength;
-			for (var i = 0; i < numbPills; i++) {
-				x = (i + 1) * (canvas.width/(numbPills+1));
-				ctx1.fillStyle = colorList[i];
-				ht = (elapsedTime/maxTime) * height[i];
-				ctx1.fillRect(x-50,canvas.height - 0 - ht,width,ht);
-				ctx1.stroke();
-				//TO DO: MAKE BOLD
-				ctx1.font = "40px Arial";
-				// ctx1.color = "#000000"
-				ctx1.fillStyle = "white";
-				ctx1.fillText(scores[i],x - width/3,700);
-				ctx1.stroke();
-				//255,700
-			}
-		if(elapsedTime > maxTime){
-			animate = false;
-		}
-		setTimeout(update,tickLength);
-	}
-
-	else{
 		for (var i = 0; i < numbPills; i++) {
 			x = (i + 1) * (canvas.width/(numbPills+1));
 			ctx1.fillStyle = colorList[i];
-			ctx1.fillRect(x-50,canvas.height - 0 - height[i],width,height[i]);
+			ht = (elapsedTime/maxTime) * height[i];
+			ctx1.fillRect(x-width/2,canvas.height - 0 - ht,width,ht);
 			ctx1.stroke();
 			//TO DO: MAKE BOLD
 			ctx1.font = "40px Arial";
 			// ctx1.color = "#000000"
 			ctx1.fillStyle = "white";
-			ctx1.fillText(scores[i],x - width/3,700);
+			ctx1.fillText(scores[i],x - width/3,canvas.height * 0.94);
+			ctx1.stroke();
+			//255,700
+		}
+		if(elapsedTime > maxTime){
+			animate = false;
+		}
+		
+	}
+	
+	else{
+		for (var i = 0; i < numbPills; i++) {
+			x = (i + 1) * (canvas.width/(numbPills+1));
+			ctx1.fillStyle = colorList[i];
+			ctx1.fillRect(x-width/2,canvas.height - 0 - height[i],width,height[i]);
+			ctx1.stroke();
+			//TO DO: MAKE BOLD
+			ctx1.font = "40px Arial";
+			// ctx1.color = "#000000"
+			ctx1.fillStyle = "white";
+			ctx1.fillText(scores[i],x - width/3,canvas.height * 0.94);
 			ctx1.stroke();
 			//255,700			
 	  	}
 	  }
 	if (Currentclass >= 0){
 		updateText();
-	}	  
+	}	
+	setTimeout(update,tickLength);
 }
 
 function getPosition(event) {
@@ -149,7 +156,6 @@ function getPosition(event) {
   y -= canvas.offsetTop;
 
   showInfo(x,y);
-  update();
 } 
 
 function showInfo(x,y) {
