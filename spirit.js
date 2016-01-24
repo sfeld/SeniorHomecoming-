@@ -1,5 +1,5 @@
 //Below is where you change scores
-var scores = [295,260,510,495]
+var scores = [0,0,0,0]
 
 //Below is where you change events
 
@@ -15,7 +15,6 @@ var rList = ['Seniors', 'Day 1 Dressup (81.2%) (+55)', 'Jeopardy: 2nd Place (+40
 var titleText = "Kehillah 2016 Homecoming Points"
 
 var animate = true
-
 
 var canvas = document.getElementById("canvas");
 var ctx1 = canvas.getContext("2d");
@@ -90,7 +89,7 @@ function update() {
   	ctx1.canvas.width  =  window.innerWidth;//screen.availHeight
   	ctx1.canvas.height =  window.innerHeight; //screen.availWidth
   	//Sets the window color
-	ctx1.fillStyle = "#cce5ff";
+	ctx1.fillStyle = 'red' //"#cce5ff";
 	ctx1.fillRect(0,0,canvas.width,canvas.height)
 	
 	//draw title each time
